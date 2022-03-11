@@ -1,3 +1,165 @@
 .App {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #F6E5E9;
+}
+
+/* navbar */
+.navBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background-color: #4A1C40;
+}
+
+.link {
+  margin-left: 30px;
+  color: #F6E5E9;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+/* home page */
+.post {
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  border: 1px grey solid;
+  border-radius: 50px;
+  width: 45%;
+  height: 250px;
+  margin: 30px;
+  background-color: #E798AE;
+  cursor: pointer;
+}
+
+
+.postHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 32%;
+  background-color: #962D2D;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.username{
+  font-size: 1.7rem;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.title{
+  font-size: 1.1rem;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+/* form page  */
+
+.creatPostPage {
+  background-color: #962D2D;
+  width: 100%;
+  height: 600px;
+}
+
+.form {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+border-radius: 70px;
+background-color: #E798AE;
+width: 60%;
+height: 70%;
+}
+
+.fieldStyle{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.inputForm{
+  margin-top: 10px;
+  height: 25px;
+}
+
+.inputText{
+  width: 300px;
+  height: 100px;
+}
+
+.submitButton{
+  border-radius: 25px;
+  width: 130px;
+  height: 45px;
+}
+
+/* post page */ 
+
+.postPage {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+}
+
+.leftside{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+
+.cardPost {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px grey solid;
+  border-radius: 50px;
+  width: 80%;
+  height: 250px;
+  background-color: #E798AE;
+}
+
+.postBody{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.rightside{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
 }
