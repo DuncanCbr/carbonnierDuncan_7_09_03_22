@@ -8,11 +8,11 @@ function Createpost() {
 
   let history = useHistory();
 
-    const initialValues = {
-      title: "",
-      postText: "",
-      username: "",
-    }
+  const initialValues = {
+    username: "",
+    title: "",
+    postText: "",
+  };
 
     const validationSchema = Yup.object().shape({
       title: Yup.string().required(),
@@ -30,7 +30,7 @@ function Createpost() {
         <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
             <Form className='form'>
                 <label className="fieldStyle"><span>Name </span>
-                <Field className="inputForm" id='inputCreatPost' name="postName" placeholder="(ex. John...)"/>
+                <Field className="inputForm" id='inputCreatPost' name="username" placeholder="(ex. John...)"/>
                 <ErrorMessage name="name" component="span" className='msgError' />
                 </label>
                 <label className="fieldStyle"><span>Title </span>
@@ -41,11 +41,11 @@ function Createpost() {
                 <Field className="inputForm inputText" id='inputCreatPost' name="postText" placeholder="(ex. I live in paris...)"/>
                 <ErrorMessage name="postText" component="span" className='msgError' />
                 </label>
-                <button className="submitButton"type='submit'>Create your post</button>
+                <button className="submitButton" type='submit'>Create your post</button>
             </Form>
         </Formik>
     </div>
   )
 }
 
-export default Createpost
+export default Createpost;
