@@ -18,7 +18,7 @@ function Home() {
     <div className="App">
       {listOfPosts.map((value, key) => { 
         return (
-        <div className="post" onClick={() => history.push(`/post/${value.id}`)}>
+        <div key={key} className="post" onClick={() => history.push(`/post/${value.id}`)}>
             <div className="postHeader"> 
               <div className="username">{value.username}</div>
               <div className="title">{value.title}</div> 
