@@ -13,6 +13,8 @@ function App() {
     <div className='navBar'>
       <Link to="/createpost" className='link'> creat a post</Link>
       <Link to="/" className='link'> Home Page</Link>
+      <Link to="/login" className='link'> login</Link>
+      <Link to="/registration" className='link'>registration</Link>
     </div>
     <Switch>
       <Route exact path="/"  component={Home}/>
