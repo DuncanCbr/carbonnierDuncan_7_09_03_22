@@ -5,18 +5,31 @@ import createpost from "./pages/Createpost";
 import Post from "./pages/Post";
 import login from "./pages/login";
 import registration from "./pages/registration";
-
+import {AuthContext} from './helpers/AuthContext';
+import {useState, useEffect} from "react";
 
 
 
 function App() {
+  const [authState, setAuthState] = useState(false);
+
+  useEffect(() => {
+    if(localStorage.getItem("accessToken")){
+      setAuthState(true);
+    }
+  }, []);
   return (
+    <AuthContext.Provider value={{authState, setAuthState}}>
     <Router>
     <div className='navBar'>
       <Link to="/createpost" className='link'> creat a post</Link>
       <Link to="/" className='link'> Home Page</Link>
+      {!authState && (
+        <>
       <Link to="/login" className='link'> Login</Link>
       <Link to="/registration" className='link'>Registration</Link>
+        </>
+      )}
     </div>
     <Switch>
       <Route exact path="/"  component={Home}/>
@@ -25,7 +38,8 @@ function App() {
       <Route exact path="/login" component={login}/>
       <Route exact path="/registration" component={registration}/>
     </Switch>
-  </Router>
+    </Router>
+    </AuthContext.Provider>
   );
 }
 
