@@ -9,6 +9,10 @@
   background-color: #F6E5E9;
 }
 
+#root {
+  background-color: #F6E5E9;
+}
+
 /* navbar */
 .navBar {
   display: flex;
@@ -190,4 +194,35 @@ height: 70%;
   margin: 10px;
   padding: 10px;
   width: 60%;
+}
+
+/* login page */
+
+.loginForm {
+  width: 100%;
+  height: 500px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+}
+
+.loginInput {
+  height: 20px;
+  margin-top: 10px;
+  border: 2px #4A1C40 solid;
+  border-radius: 25px;
+}
+
+.loginButton {
+  width: 150px;
+  height: 50px;
+  border: 2px #4A1C40 solid;
+  border-radius: 25px;
+  margin-top: 10px;
+  cursor: pointer;
 }

@@ -1,6 +1,6 @@
 const {Users} = require('../models');
 const bcrypt = require('bcrypt');
-
+const {sign} = require('jsonwebtoken');
 
 
 exports.createUser =  (req,res) => {
@@ -23,6 +23,7 @@ exports.loginUser = async (req,res) => {
     bcrypt.compare(password, user.password).then((match) => {
         if (!match) res.json({error : "wrong password !"});
 
-        res.json("you logged in !");
+        const accessToken = sign({username: user.username, id: user.id}, "secret");
+        res.json(accessToken);
     });
 };
