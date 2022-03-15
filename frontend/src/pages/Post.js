@@ -43,9 +43,9 @@ function Post() {
         </div>    
         <div className='rightside'>
             <div className='listOfComments'>
-                {comments.map((comment, key) => {
-                    return <div key={key} className='comment'> {comment.commentBody} </div>
-                })}
+                {comments.map((comment, index) => {
+                    return <div key={index} className='comment'> {comment.commentBody} </div>
+                })};
             </div>
             <div className="addCommentContainer">
                 <input  className='inputComment' value={newComment} type="text" placeholder='comment...' onChange={(event) => {setNewComment(event.target.value)}}></input>
