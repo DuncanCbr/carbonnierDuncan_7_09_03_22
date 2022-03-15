@@ -7,6 +7,7 @@ import login from "./pages/login";
 import registration from "./pages/registration";
 import {AuthContext} from './helpers/AuthContext';
 import {useState, useEffect} from "react";
+import axios from 'axios';
 
 
 
@@ -14,9 +15,13 @@ function App() {
   const [authState, setAuthState] = useState(false);
 
   useEffect(() => {
-    if(localStorage.getItem("accessToken")){
-      setAuthState(true);
-    }
+    axios.get('http://localhost:3002/auth/auth', {headers : {accessToken : localStorage.getItem('accessToken')}}).then((response) => {
+      if(response.data.error){
+        setAuthState(false)
+      }else{
+        setAuthState(true);
+      }
+    });
   }, []);
   return (
     <AuthContext.Provider value={{authState, setAuthState}}>

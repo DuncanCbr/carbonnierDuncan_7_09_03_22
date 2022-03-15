@@ -27,3 +27,7 @@ exports.loginUser = async (req,res) => {
         res.json(accessToken);
     });
 };
+
+exports.checkToken = (req,res) => {
+    res.json(req.user);
+}
