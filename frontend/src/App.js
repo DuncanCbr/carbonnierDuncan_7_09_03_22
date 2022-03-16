@@ -23,17 +23,25 @@ function App() {
       }
     });
   }, []);
+
+  const logout = () => {
+    localStorage.removeItem("accessToken");
+    setAuthState(false);
+  };
+
   return (
     <AuthContext.Provider value={{authState, setAuthState}}>
     <Router>
     <div className='navBar'>
       <Link to="/createpost" className='link'> creat a post</Link>
       <Link to="/" className='link'> Home Page</Link>
-      {!authState && (
+      {!authState ? (
         <>
       <Link to="/login" className='link'> Login</Link>
       <Link to="/registration" className='link'>Registration</Link>
         </>
+      ): (
+        <button onClick={logout}>Logout</button>
       )}
     </div>
     <Switch>
