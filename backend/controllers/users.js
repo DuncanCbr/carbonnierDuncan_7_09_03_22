@@ -24,7 +24,7 @@ exports.loginUser = async (req,res) => {
         if (!match) res.json({error : "wrong password !"});
 
         const accessToken = sign({username: user.username, id: user.id}, "secret");
-        res.json(accessToken);
+        res.json({token: accessToken, username: username, id: user.id});
     });
 };
 

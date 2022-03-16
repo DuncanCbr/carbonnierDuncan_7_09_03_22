@@ -15,3 +15,10 @@ exports.createComment = async (req,res) => {
     await Comments.create(comment);
     res.json(comment);
 };
+
+exports.deleteComment = async (req,res) => {
+    const commentId = req.params.commentId;
+
+    await Comments.destroy({where : { id: commentId}});
+    res.json("deleted succesfully !");
+};
