@@ -9,7 +9,7 @@ router.get('/:postId', commentControllers.getCommentById);
 
 router.post("/", auth, commentControllers.createComment);
 
-router.delete("/:commentId", auth, commentControllers.deleteComment)
+router.delete("/:commentId", auth, commentControllers.deleteComment);
 
 
 module.exports = router;
