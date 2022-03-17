@@ -8,9 +8,9 @@ exports.like = async (req,res) => {
 
     if(!found){
         await Likes.create({PostId: PostId, UserId: UserId});
-        res.json({Liked: true});
+        res.json({liked: true});
     }else{
         await Likes.destroy({where: { PostId: PostId, UserId: UserId } });
-        res.json({Liked: false});
+        res.json({liked: false});
     }
 }

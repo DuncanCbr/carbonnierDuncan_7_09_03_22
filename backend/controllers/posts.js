@@ -2,9 +2,12 @@ const {Posts, Likes} = require('../models');
 const fs = require('fs');
 
 
+
 exports.getAllPost = async (req,res) => {
-    const listOfPosts = await Posts.findAll({include: [Likes]})
-    res.json(listOfPosts);
+    const listOfPosts = await Posts.findAll({include: [Likes]});
+
+    const likedPosts = await Likes.findAll({where: { userId: req.user.id}})
+    res.json({listOfPosts: listOfPosts, likedPosts: likedPosts} );
 }
 
 exports.getOnePost = async (req,res) => {

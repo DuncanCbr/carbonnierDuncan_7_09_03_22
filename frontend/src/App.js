@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import createpost from "./pages/Createpost";
 import Post from "./pages/Post";
 import login from "./pages/login";
+import PageNotFound from "./pages/PageNotFound";
 import registration from "./pages/registration";
 import {AuthContext} from './helpers/AuthContext';
 import {useState, useEffect} from "react";
@@ -60,6 +61,7 @@ function App() {
       <Route exact path="/post/:id" component={Post}/>
       <Route exact path="/login" component={login}/>
       <Route exact path="/registration" component={registration}/>
+      <Route exact path="*" component={PageNotFound}/>
     </Switch>
     </Router>
     </AuthContext.Provider>

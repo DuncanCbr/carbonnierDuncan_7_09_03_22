@@ -6,7 +6,7 @@ const auth = require('../midlewares/auth');
 const postControllers = require('../controllers/posts');
 
 
-router.get("/", postControllers.getAllPost);
+router.get("/", auth, postControllers.getAllPost);
 
 router.get('/byId/:id', postControllers.getOnePost);
 
