@@ -18,8 +18,20 @@ exports.getOnePost = async (req,res) => {
 }
 
 exports.createPost = async (req,res) => {
-    const post = req.body
+    const post = req.body;
+    post.username = req.user.username;
     await Posts.create(post);
     res.json(post);
+}
+
+exports.deletePost = async (req,res) => {
+    const postId = req.params.id;
+    await Posts.destroy({
+      where: {
+        id: postId,
+      },
+    });
+  
+    res.json("DELETED SUCCESSFULLY");
 }
 

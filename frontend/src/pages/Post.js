@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useContext} from 'react';
-import {useParams} from "react-router-dom";
+import {useParams, useHistory } from "react-router-dom";
 import {AuthContext} from '../helpers/AuthContext';
 import axios from 'axios';
 
@@ -10,6 +10,8 @@ function Post() {
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState("");
     const {authState} = useContext(AuthContext);
+
+    let history = useHistory();
 
     useEffect(() => {
         axios.get(`http://localhost:3002/posts/byId/${id}`).then((response) => {
@@ -41,6 +43,15 @@ function Post() {
         };
         });
       };
+
+      const deletePost = (id) => {
+        axios.delete(`http://localhost:3002/posts/${id}`, {
+            headers: { accessToken: localStorage.getItem("accessToken") },
+          })
+          .then(() => {
+            history.push("/");
+          });
+      };
   return (
     <div className='postPage'>
         <div className='leftside'>
@@ -48,6 +59,7 @@ function Post() {
                 <div className='postHeader'>
                     <div className='username'>{postObject.username}</div>
                     <div className='title'>{postObject.title}</div>
+                   {authState.username === postObject.username && (<button onClick={() => {deletePost(postObject.id)}}>delete post</button>)}
                 </div>
                     <div className='postBody'>{postObject.postText}</div>   
             </div>
