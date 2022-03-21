@@ -35,5 +35,5 @@ module.exports = (sequelize, DataTypes) => {
             onDelete: "cascade",
         });
     };
-    return Posts
+    return Posts;
 };

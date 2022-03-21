@@ -31,3 +31,12 @@ exports.loginUser = async (req,res) => {
 exports.checkToken = (req,res) => {
     res.json(req.user);
 }
+
+exports.basicInfo = async (req,res) => {
+    const id = req.params.id;
+    const basicInfo = await Users.findByPk(id, {
+        attributes: {exclude: ['password']},
+    });
+    res.json(basicInfo);
+}
+

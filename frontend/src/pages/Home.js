@@ -1,7 +1,7 @@
 import React, {useContext} from 'react'
 import axios from "axios";
 import { useEffect, useState } from "react";
-import {useHistory} from "react-router-dom"; 
+import {useHistory, Link} from "react-router-dom"; 
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import {AuthContext} from '../helpers/AuthContext';
 
@@ -63,7 +63,7 @@ function Home() {
         return (
         <div key={key} className="post">
             <div className="postHeader"> 
-              <div className="username">{value.username}</div>
+              <div className="username"><Link to={`/profile/${value.UserId}`}> {value.username} </Link></div>
               <div className="title">{value.title}</div> 
             </div>
             <div className="body" onClick={() => history.push(`/post/${value.id}`)}> 

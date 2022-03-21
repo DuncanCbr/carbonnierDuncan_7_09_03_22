@@ -6,9 +6,11 @@ import Post from "./pages/Post";
 import login from "./pages/login";
 import PageNotFound from "./pages/PageNotFound";
 import registration from "./pages/registration";
+import profilePage from "./pages/profile";
 import {AuthContext} from './helpers/AuthContext';
 import {useState, useEffect} from "react";
 import axios from 'axios';
+import profile from './pages/profile';
 
 
 
@@ -63,6 +65,7 @@ function App() {
       <Route exact path="/post/:id" component={Post}/>
       <Route exact path="/login" component={login}/>
       <Route exact path="/registration" component={registration}/>
+      <Route exact path="/profile/:id" component={profilePage}/>
       <Route exact path="*" component={PageNotFound}/>
     </Switch>
     </Router>
