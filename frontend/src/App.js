@@ -11,6 +11,7 @@ import {AuthContext} from './helpers/AuthContext';
 import {useState, useEffect} from "react";
 import axios from 'axios';
 import profile from './pages/profile';
+import ChangePassword from './pages/changePassword';
 
 
 
@@ -66,6 +67,7 @@ function App() {
       <Route exact path="/login" component={login}/>
       <Route exact path="/registration" component={registration}/>
       <Route exact path="/profile/:id" component={profilePage}/>
+      <Route exact path="/changePassword" component={ChangePassword}/>
       <Route exact path="*" component={PageNotFound}/>
     </Switch>
     </Router>
