@@ -38,7 +38,7 @@ function Createpost() {
                 <ErrorMessage name="title" component="span" className='msgError' />
                 </label>
                 <label className="fieldStyle"><span>Text</span>
-                <Field className="inputForm inputText" id='inputCreatPost' name="postText" placeholder="(ex. I live in paris...)"/>
+                <Field className="inputText" id='inputCreatPost' name="postText" placeholder="(ex. I live in paris...)"/>
                 <ErrorMessage name="postText" component="span" className='msgError' />
                 </label>
                 <button className="submitButton" type='submit'>Create your post</button>

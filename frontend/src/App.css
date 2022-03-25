@@ -6,11 +6,23 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #F6E5E9;
+  background-color: #ececec;
 }
 
 #root {
-  background-color: #F6E5E9;
+  background-color: #ececec;
+}
+
+.colorText{
+  color: black ;
+}
+
+.noDecoration {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 1.9rem;
 }
 
 /* navbar */
@@ -20,45 +32,116 @@
   align-items: center;
   width: 100%;
   height: 50px;
-  background-color: #4A1C40;
+  background-color:#66d351;
 }
 
 .link {
   margin-left: 30px;
-  color: #F6E5E9;
   font-size: 1.2rem;
-  text-decoration: none;
 }
 
-/* home page */
-.post {
+.navLinkPlacement {
+  flex: 1;
+}
+
+.navUsername {
   display: flex;
-  flex-direction: column;
-  text-align: center;
-  border: 1px grey solid;
-  border-radius: 50px;
-  width: 45%;
-  height: 250px;
-  margin: 30px;
-  background-color: #E798AE;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.btnLogPlacement {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.btnLog {
+  width: 70px;
+  height: 30px;
+  border-radius: 25px;
+  border: 1px solid grey;
+  margin-right: 20px;
   cursor: pointer;
 }
 
+/* footer */
 
-.postHeader {
+footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 32%;
-  background-color: #962D2D;
-  border-top-left-radius: 50px;
-  border-top-right-radius: 50px;
-  
+  height: 300px;
+  background-color: #66d351;
 }
 
-.body {
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60%;
+}
+
+.logoStyle {
+  width: 30%;
+  height: 100%;
+}
+
+.polPryContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.polPryStyle {
+  margin: 20px;
+  cursor: pointer;
+}
+
+/* home page */
+
+.postDisplay {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+}
+
+.postCard {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 1px grey solid;
+  border-radius: 50px;
+  width: 500px;
+  height: 400px;
+  margin: 30px;
+  background-color: #e8f8e2;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+
+.headerCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 32%;
+  background-color: #7cbe6a;  
+}
+
+.title {
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.bodyCard {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -66,21 +149,56 @@
   height: 100%;
 }
 
-.username{
-  font-size: 1.7rem;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.footerCard {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  width: 100%;
+  height: 32%;
+  background-color: #7cbe6a;
+  overflow: hidden;
 }
 
-.title{
-  font-size: 1.1rem;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.username {
+  margin-left: 30px;
+}
+
+.likeContainer {
+  margin-right: 30px;
+  width: 200px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.likeBtnContainer {
+  margin-right: 20px;
+}
+
+.unlikeBtn {
+  color: grey;
+  border: 1px grey solid;
+  border-radius: 25px;
+  padding: 3px;
+}
+
+.likeBtn {
+  border: 1px black solid;
+  border-radius: 25px;
+  padding: 5px;
+}
+
+.likeCount {
+  font-size: 1.3rem;
 }
 
 
-/* form page  */
+/* createPost page  */
 
 .creatPostPage {
-  background-color: #962D2D;
+  background-color: #ececec;
   width: 100%;
   height: 600px;
 }
@@ -91,7 +209,7 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 border-radius: 70px;
-background-color: #E798AE;
+background-color: #7cbe6a;
 width: 60%;
 height: 70%;
 }
@@ -107,15 +225,22 @@ height: 70%;
 
 .inputForm{
   margin-top: 10px;
+  width: 250px;
   height: 25px;
+  border-radius: 20px;
+  border: 1px grey solid;
 }
 
 .inputText{
+  margin-top: 10px;
   width: 300px;
   height: 100px;
+  border-radius: 20px;
+  border: 1px grey solid;
 }
 
 .submitButton{
+  border: 1px grey solid;
   border-radius: 25px;
   width: 130px;
   height: 45px;

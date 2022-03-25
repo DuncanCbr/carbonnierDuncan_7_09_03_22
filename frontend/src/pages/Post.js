@@ -20,7 +20,8 @@ function Post() {
     axios.get(`http://localhost:3002/comments/${id}`).then((response) => {
       setComments(response.data);
     });
-  }, []);
+    console.log(authState);
+  }, [authState.status]);
 
   const deleteComment = (id) => {
     axios
@@ -108,7 +109,7 @@ function Post() {
           >
             <div className="username">{postObject.username}</div>
             <div className="title">{postObject.title}</div>
-            {authState.username === postObject.username && (
+            {(authState.username === postObject.username || authState.role === "roleAdmin" ) &&  (
               <button
                 onClick={() => {
                   deletePost(postObject.id);

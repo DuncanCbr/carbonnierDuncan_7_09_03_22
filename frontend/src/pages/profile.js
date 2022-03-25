@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useParams, useHistory, Link} from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../helpers/AuthContext";
-
+import Logout from "../App";
 
 function Profile() {
   let history = useHistory();
@@ -19,12 +19,48 @@ function Profile() {
       setListOfPosts(response.data);
     });
   }, []);
+
+  const deleteUser = (id) => {
+    axios
+      .delete(`http://localhost:3002/auth/deleteaccount/${id}`, {
+        headers: { accessToken: localStorage.getItem("accessToken") },
+      })
+      .then(() => {
+        if (authState.role === "roleAdmin") {
+          history.push("/");
+        } else {
+          localStorage.removeItem("accessToken");
+          document.location.href = "/login";
+        }
+      });
+  };
   return (
     <div className="profilePageContainer">
       <div className="basicInfo">
         {""}
         <h1> Username: {username}</h1>
-        { authState.username === username && (<button onClick={()=>{history.push("/ChangePassword")}}> change my Password</button>)}
+        {(authState.username === username ||
+          authState.role ===
+            "roleAdmin") && (
+              <div>
+                <button
+                  onClick={() => {
+                    history.push("/ChangePassword");
+                  }}
+                >
+                  {" "}
+                  change my Password
+                </button>
+                <button
+                  onClick={() => {
+                    deleteUser(id);
+                  }}
+                >
+                  {" "}
+                  Delete Account
+                </button>
+              </div>
+            )}
       </div>
       <div className="listOfPost">
         {listOfPosts.map((value, key) => {

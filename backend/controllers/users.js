@@ -3,11 +3,13 @@ const bcrypt = require("bcrypt");
 const { sign } = require("jsonwebtoken");
 
 exports.createUser = (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, email, phone } = req.body;
   bcrypt.hash(password, 10).then((hash) => {
     Users.create({
       username: username,
       password: hash,
+      email: email,
+      phone: phone,
     });
     res.json("succes");
   });
@@ -23,12 +25,18 @@ exports.loginUser = async (req, res) => {
     if (!match) res.json({ error: "wrong password !" });
 
     const accessToken = sign(
-      { username: user.username, id: user.id },
+      { username: user.username, id: user.id, role: user.role},
       "secret"
     );
-    res.json({ token: accessToken, username: username, id: user.id });
+    res.json({ token: accessToken, username: username, role: user.role, id: user.id });
   });
 };
+
+exports.getAllUsers = async (req,res) => {
+  const user = req.user;
+  const listOfUsers = await Users.findAll({user});
+  res.json(listOfUsers);
+}
 
 exports.checkToken = (req, res) => {
   res.json(req.user);
@@ -57,4 +65,15 @@ exports.editPassword = async (req, res) => {
       res.json("SUCCESS");
     });
   });
+};
+
+exports.deleteAccount = async (req, res) => {
+  const userId = req.params.id;
+  await Users.destroy({
+    where: {
+      id: userId,
+    },
+  });
+
+  res.json("DELETED SUCCESSFULLY");
 };
