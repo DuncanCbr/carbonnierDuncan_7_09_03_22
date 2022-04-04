@@ -31,13 +31,6 @@ exports.loginUser = async (req, res) => {
     res.json({ token: accessToken, username: username, role: user.role, id: user.id });
   });
 };
-
-exports.getAllUsers = async (req,res) => {
-  const user = req.user;
-  const listOfUsers = await Users.findAll({user});
-  res.json(listOfUsers);
-}
-
 exports.checkToken = (req, res) => {
   res.json(req.user);
 };
@@ -66,6 +59,7 @@ exports.editPassword = async (req, res) => {
     });
   });
 };
+
 
 exports.deleteAccount = async (req, res) => {
   const userId = req.params.id;

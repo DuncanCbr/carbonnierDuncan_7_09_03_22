@@ -3,6 +3,7 @@ const router = express.Router();
 const auth = require('../midlewares/auth');
 
 
+
 const postControllers = require('../controllers/posts');
 
 
@@ -16,8 +17,7 @@ router.post("/", auth, postControllers.createPost);
 
 router.delete("/:id", auth, postControllers.deletePost);
 
-router.put('/title', auth, postControllers.editTitle);
+router.put('/editPost', auth, postControllers.editPost);
 
-router.put('/postText', auth, postControllers.editBody);
 
 module.exports = router;

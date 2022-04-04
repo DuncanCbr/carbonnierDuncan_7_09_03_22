@@ -2,18 +2,17 @@ import React, { useEffect, useState, useContext } from "react";
 import { useParams, useHistory, Link } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../helpers/AuthContext";
-import Logout from "../App";
 
 function Profile() {
   let history = useHistory();
   let { id } = useParams();
-  const [username, setUsername] = useState("");
+  const [profileInfo, setProfileInfo] = useState("");
   const [listOfPosts, setListOfPosts] = useState([]);
   const { authState } = useContext(AuthContext);
 
   useEffect(() => {
     axios.get(`http://localhost:3002/auth/basicinfo/${id}`).then((response) => {
-      setUsername(response.data.username);
+      setProfileInfo(response.data);
     });
     axios.get(`http://localhost:3002/posts/byuserId/${id}`).then((response) => {
       setListOfPosts(response.data);
@@ -34,52 +33,65 @@ function Profile() {
         }
       });
   };
+
   return (
     <div className="profilePageContainer">
       <div className="basicInfo">
         {""}
-        <h1> Username: {username}</h1>
-        {(authState.username === username ||
-          authState.role ===
-            "roleAdmin") && (
-              <div>
-                <button
-                  onClick={() => {
-                    history.push("/ChangePassword");
-                  }}
-                >
-                  {" "}
-                  change my Password
-                </button>
-                <button
-                  onClick={() => {
-                    deleteUser(id);
-                  }}
-                >
-                  {" "}
-                  Delete Account
-                </button>
-              </div>
-            )}
-      </div>
-      <div className="listOfPost">
-        {listOfPosts.map((value, key) => {
-          return (
-            <div key={key} className="post">
-              <div className="postHeader">
-                <div className="username">{value.username}</div>
-                <div className="title">{value.title}</div>
-              </div>
-              <div
-                className="body"
-                onClick={() => history.push(`/post/${value.id}`)}
+        <p> Username: {profileInfo.username}</p>
+        <div className="infoContainerA">
+          <div className="infoContainerB">
+            <p> phone: {profileInfo.phone}</p>
+            <button
+              onClick={() => {
+                history.push("/ChangePassword");
+              }}
+            >
+              {" "}
+              change my Password
+            </button>
+          </div>
+
+          {(authState.username === profileInfo.username ||
+            authState.role === "roleAdmin") && (
+            <div className="infoContainerB">
+              <p> email: {profileInfo.email}</p>
+              <button
+                onClick={() => {
+                  deleteUser(id);
+                }}
               >
-                {value.postText}
-                <label>{value.Likes.length}</label>
-              </div>
+                {" "}
+                Delete Account
+              </button>
             </div>
-          );
-        })}
+          )}
+        </div>
+      </div>
+
+      <div className="postContainer">
+        <h1>Your Posts : </h1>
+        <div className="listOfPost">
+          {listOfPosts.map((value, key) => {
+            return (
+              <div key={key} className="postCard">
+                <div className="headerCard">
+                  <div className="title">{value.title}</div>
+                </div>
+                <div
+                  className="bodyCard pointer"
+                  onClick={() => history.push(`/post/${value.id}`)}
+                >
+                  {value.postText}
+                </div>
+                <div className="footerCard">
+                  <div className="username">{value.username}</div>
+                  <div className="likeContainer">{value.Likes.length}</div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

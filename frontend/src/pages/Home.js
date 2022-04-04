@@ -77,6 +77,9 @@ function Home() {
         }
       });
   };
+  
+
+  
   return (
     <div className="postDisplay">
       {listOfPosts.map((value, key) => {
@@ -85,7 +88,7 @@ function Home() {
             <div className="headerCard">
               <div className="title">{value.title}</div>
               {(authState.username === value.username || authState.role === "roleAdmin" ) &&  (
-                  <DeleteForeverIcon
+                  <DeleteForeverIcon className="delModBtn"
                   onClick={() => {
                     deletePost(value.id);
                   }}
@@ -94,13 +97,13 @@ function Home() {
             )}
             </div>
             <div
-              className="bodyCard"
+              className="bodyCard pointer"
               onClick={() => history.push(`/post/${value.id}`)}
             >
               {value.postText}
             </div>
             <div className="footerCard">
-              <div className="title username">
+              <div className="username">
                 <Link
                   className="noDecoration colorText"
                   to={`/profile/${value.UserId}`}

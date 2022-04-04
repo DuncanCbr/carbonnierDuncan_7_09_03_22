@@ -31,7 +31,7 @@ function Login() {
       <label className="column"> Password
       <input  className="loginInput" type="password" onChange={(event) => {setPassword(event.target.value)}}></input>
       </label>
-      <button className="loginButton" onClick={Login}>Login</button>
+      <button className="loginButton pointer" onClick={Login}>Login</button>
     </div>
   )
 }

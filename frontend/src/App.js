@@ -76,7 +76,7 @@ const Logout = () => {
               <h1 className="navUsername"> <Link className="noDecoration colorText" to={`/profile/${authState.id}`}>Bonjour {authState.username} !</Link></h1>
               <div className="btnLogPlacement">
                 <Link to='/login' className="noDecoration">
-                <button className="btnLog" onClick={Logout}>
+                <button className="btnLog pointer" onClick={Logout}>
                   Logout
                 </button>
                 </Link>
@@ -99,9 +99,9 @@ const Logout = () => {
             <img src={logo} alt="logo de Groupomania" className="logoStyle"/>
           </div>
           <div className="polPryContainer">
-            <p className="polPryStyle">Nous contacter</p>
-            <p className="polPryStyle">Mentions Légales</p>
-            <p className="polPryStyle">Politique et Confidentialité</p>
+            <p className="polPryStyle pointer">Nous contacter</p>
+            <p className="polPryStyle pointer">Mentions Légales</p>
+            <p className="polPryStyle pointer">Politique et Confidentialité</p>
           </div>
         </footer>
       </Router>

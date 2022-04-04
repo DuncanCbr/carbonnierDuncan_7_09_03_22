@@ -40,17 +40,11 @@ exports.getPostsByUsers = async (req, res) => {
   res.json(listOfPosts);
 };
 
-exports.editTitle = async (req, res) => {
-  const { newTitle, id } = req.body;
-  await Posts.update({ title: newTitle }, { where: { id: id } });
+exports.editPost = async (req, res) => {
+  const { newTitle, newText, id } = req.body;
+  await Posts.update({ title: newTitle, postText: newText }, { where: { id: id } });
 
-  res.json(newTitle);
+  res.json({newTitle, newText});
 };
 
-exports.editBody = async (req, res) => {
-  const { newText, id } = req.body;
-  await Posts.update({postText: newText }, { where: { id: id } });
-
-  res.json(newText);
-};
 
