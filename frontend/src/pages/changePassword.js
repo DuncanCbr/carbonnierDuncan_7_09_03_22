@@ -27,23 +27,25 @@ function ChangePassword() {
   };
 
   return (
-    <div>
-      <h1>Change Your Password</h1>
-      <input
+    <div className="changePwContainer">
+      <h1>Changez votre mots de passe</h1>
+      <input 
+        className="changePwInput"
         type="text"
-        placeholder="Old Password..."
+        placeholder="Ancien Mots de passe..."
         onChange={(event) => {
           setOldPassword(event.target.value);
         }}
       />
       <input
+      className="changePwInput"
         type="text"
-        placeholder="New Password..."
+        placeholder="Nouveau mots de passe..."
         onChange={(event) => {
           setNewPassword(event.target.value);
         }}
       />
-      <button onClick={changePassword}> Save Changes</button>
+      <button className="changePwBtn" onClick={changePassword}> Sauvegarder les changements</button>
     </div>
   );
 }

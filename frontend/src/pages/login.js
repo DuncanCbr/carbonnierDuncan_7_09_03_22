@@ -25,13 +25,14 @@ function Login() {
   };
   return (
     <div className="loginForm column">
-      <label className="column"> Username
+      <div><h1>Connectez vous !</h1></div>
+      <label className="column"> Nom d'utilisateur
       <input className="loginInput" type="text" onChange={(event) => {setUsername(event.target.value)}}></input>
       </label>
-      <label className="column"> Password
+      <label className="column"> Mots de passe
       <input  className="loginInput" type="password" onChange={(event) => {setPassword(event.target.value)}}></input>
       </label>
-      <button className="loginButton pointer" onClick={Login}>Login</button>
+      <button className="loginButton pointer" onClick={Login}>Connection</button>
     </div>
   )
 }

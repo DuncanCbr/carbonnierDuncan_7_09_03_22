@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
@@ -9,6 +9,7 @@ function Createpost() {
 
   let history = useHistory();
   const {authState} = useContext(AuthContext);
+  const [image, setImage] = useState("");
 
   const initialValues = {
     title: "",
@@ -25,23 +26,32 @@ function Createpost() {
     })
 
     const onSubmit = (data) => {
-      axios.post("http://localhost:3002/posts", data, {headers: {accessToken: localStorage.getItem("accessToken")}}).then((response) => {
-        history.push("/");
+      console.log(data);
+      const formData = new FormData();
+      formData.append("title", data.title);
+      formData.append("postText", data.postText);
+      formData.append("image", image);
+      axios.post("http://localhost:3002/posts", formData, {headers: {accessToken: localStorage.getItem("accessToken")}}).then((response) => {
+      history.push("/");
     });
     }
   return (
     <div className='creatPostPage App'> 
-        <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
+        <Formik initialValues={initialValues} onSubmit={onSubmit} method="POST" encType='multipart/form-data' validationSchema={validationSchema}>
             <Form className='form'>
-                <label className="fieldStyle"><span>Title </span>
-                <Field className="inputForm" id='inputCreatPost' name="title" placeholder="(ex. Story Time...)"/>
+                <label className="fieldStyle"><span>Titre </span>
+                <Field className="inputForm" id='inputCreatPost' name="title" placeholder="(ex. Ma Story...)"/>
                 <ErrorMessage name="title" component="span" className='msgError' />
                 </label>
-                <label className="fieldStyle"><span>Text</span>
-                <Field className="inputText" id='inputCreatPost' name="postText" placeholder="(ex. I live in paris...)"/>
+                <label className="fieldStyle"><span>Texte</span>
+                <Field className="inputText" id='inputCreatPost' name="postText" placeholder="(ex. je vis à paris...)"/>
                 <ErrorMessage name="postText" component="span" className='msgError' />
                 </label>
-                <button className="submitButton" type='submit'>Create your post</button>
+                <label  className="fieldStyle">
+                <span>Image</span>
+                   <Field type="file" name="image" id='inputImage' className="marginFile" onChange={(e)=>setImage(e.target.files[0])}></Field>
+                </label>
+                <button className="submitButton" type='submit'>Créez votre message</button>
             </Form>
         </Formik>
     </div>

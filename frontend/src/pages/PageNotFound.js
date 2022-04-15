@@ -3,9 +3,9 @@ import {Link} from "react-router-dom";
 
 function PageNotFound() {
   return (
-    <div> 
-        <h1>Page Not Found :</h1>
-        <h3>Try this link : <Link to="/" className='link'> Home Page</Link></h3>
+    <div className='pageNotFound'> 
+        <h1 className='pnfScale'>Impossible de trouver la page recherché.</h1>
+        <h3>Essayez ce lien: <Link to="/" className='link'> Accueil</Link></h3>
     </div>
   )
 }

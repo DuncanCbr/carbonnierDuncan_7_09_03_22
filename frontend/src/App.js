@@ -12,7 +12,10 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import profile from "./pages/profile";
 import ChangePassword from "./pages/changePassword";
-import logo from "./images/iconFooterBlack.png";
+import logo from "./fcImages/icon-left-font-monochrome-white.svg";
+import PersonIcon from '@mui/icons-material/Person';
+import LogoutIcon from '@mui/icons-material/Logout';
+
 
 function App() {
 
@@ -55,10 +58,10 @@ const Logout = () => {
             <>
               <Link to="/login" className="link noDecoration colorText">
                 {" "}
-                Login
+                Connection
               </Link>
               <Link to="/registration" className="link noDecoration colorText">
-                Registration
+                inscription
               </Link>
             </>
           ) : (
@@ -66,18 +69,18 @@ const Logout = () => {
               <div className="navLinkPlacement">
                 <Link to="/createpost" className="link noDecoration colorText">
                   {" "}
-                  creat a post
+                  Postez votre message
                 </Link>
                 <Link to="/" className="link noDecoration colorText">
                   {" "}
-                  Home Page
+                  Accueil
                 </Link>
               </div>
-              <h1 className="navUsername"> <Link className="noDecoration colorText" to={`/profile/${authState.id}`}>Bonjour {authState.username} !</Link></h1>
               <div className="btnLogPlacement">
+                <Link className=" profileIcon noDecoration colorText" to={`/profile/${authState.id}`}><PersonIcon/></Link>
                 <Link to='/login' className="noDecoration">
                 <button className="btnLog pointer" onClick={Logout}>
-                  Logout
+                  <LogoutIcon/>
                 </button>
                 </Link>
               </div>
@@ -99,9 +102,9 @@ const Logout = () => {
             <img src={logo} alt="logo de Groupomania" className="logoStyle"/>
           </div>
           <div className="polPryContainer">
-            <p className="polPryStyle pointer">Nous contacter</p>
-            <p className="polPryStyle pointer">Mentions Légales</p>
-            <p className="polPryStyle pointer">Politique et Confidentialité</p>
+            <p className="polPryStyle pointer colorText">Nous contacter</p>
+            <p className="polPryStyle pointer colorText">Mentions Légales</p>
+            <p className="polPryStyle pointer colorText">Politique et Confidentialité</p>
           </div>
         </footer>
       </Router>

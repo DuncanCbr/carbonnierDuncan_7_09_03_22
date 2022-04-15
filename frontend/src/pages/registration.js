@@ -35,6 +35,7 @@ function registration() {
 
   return (
     <div className="App">
+      <div><h1>Inscrivez vous !</h1></div>
       <Formik
         initialValues={initialValues}
         onSubmit={onSubmit}
@@ -42,7 +43,7 @@ function registration() {
       >
         <Form className="form">
           <label className="fieldStyle">
-            <span>Username </span>
+            <span>Nom d'utilisateur </span>
             <Field
               className="inputForm"
               name="username"
@@ -64,7 +65,7 @@ function registration() {
             <ErrorMessage name="email" component="span" className="msgError" />
           </label>
           <label className="fieldStyle">
-            <span>Phone Number </span>
+            <span>Téléphone </span>
             <Field
               className="inputForm"
               name="phone"
@@ -73,7 +74,7 @@ function registration() {
             <ErrorMessage name="phone" component="span" className="msgError" />
           </label>
           <label className="fieldStyle">
-            <span>Password </span>
+            <span>Mots de passe </span>
             <Field
               className="inputForm"
               type="password"
@@ -87,7 +88,7 @@ function registration() {
             />
           </label>
             <button className="submitButton" type="submit" onClick={redirection}>
-              Register
+              Inscription
             </button>
         </Form>
       </Formik>

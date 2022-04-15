@@ -1,5 +1,7 @@
 const { Posts, Likes } = require("../models");
 
+
+
 exports.getAllPost = async (req, res) => {
   const listOfPosts = await Posts.findAll({ include: [Likes] });
   const likedPosts = await Likes.findAll({ where: { UserId: req.user.id } });
@@ -14,6 +16,9 @@ exports.getOnePost = async (req, res) => {
 
 exports.createPost = async (req, res) => {
   const post = req.body;
+  if (req.file){
+    post.image = req.file.path;
+  }else{}
   post.username = req.user.username;
   post.UserId = req.user.id;
   await Posts.create(post);
@@ -41,10 +46,11 @@ exports.getPostsByUsers = async (req, res) => {
 };
 
 exports.editPost = async (req, res) => {
-  const { newTitle, newText, id } = req.body;
-  await Posts.update({ title: newTitle, postText: newText }, { where: { id: id } });
+  const { newTitle, newText, newImage, id } = req.body;
+  await Posts.update(
+    { title: newTitle, postText: newText, image: newImage},
+    { where: { id: id } }
+  );
 
-  res.json({newTitle, newText});
+  res.json({ newTitle, newText, newImage });
 };
-
-

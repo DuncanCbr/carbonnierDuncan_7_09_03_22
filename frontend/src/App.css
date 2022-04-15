@@ -6,15 +6,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #ececec;
+  background-color: #E9F1F4;
+  min-height: 570px;
 }
 
 #root {
-  background-color: #ececec;
+  background-color: #E9F1F4;
 }
 
 .colorText{
-  color: black ;
+  color: white;
 }
 
 .noDecoration {
@@ -36,7 +37,7 @@ h1 {
   align-items: center;
   width: 100%;
   height: 50px;
-  background-color:#66d351;
+  background-color:#01579b;
 }
 
 .link {
@@ -48,12 +49,11 @@ h1 {
   flex: 1;
 }
 
-.navUsername {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
+.profileIcon {
+  border: 1px solid white;
+  border-radius: 50px;
+  margin-right: 30px;
+  padding: 3px;
 }
 
 .btnLogPlacement {
@@ -64,7 +64,7 @@ h1 {
 }
 
 .btnLog {
-  width: 70px;
+  width: 120px;
   height: 30px;
   border-radius: 25px;
   border: 1px solid grey;
@@ -80,7 +80,7 @@ footer {
   align-items: center;
   width: 100%;
   height: 300px;
-  background-color: #66d351;
+  background-color: #01579b;
 }
 
 .logoContainer {
@@ -120,10 +120,10 @@ footer {
   text-align: center;
   border: 1px grey solid;
   border-radius: 50px;
-  width: 500px;
-  height: 400px;
+  width: 550px;
+  height: 500px;
   margin: 30px;
-  background-color: #e8f8e2;
+  background-color: white;
   overflow: hidden;
 }
 
@@ -133,8 +133,8 @@ footer {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 32%;
-  background-color: #7cbe6a;  
+  height: 25%;
+  background-color: #e57373;  
 }
 
 .title {
@@ -144,6 +144,7 @@ footer {
 }
 
 .delModBtn {
+  cursor: pointer;
   flex: 0.3;
 
 }
@@ -152,24 +153,42 @@ footer {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   height: 100%;
 }
 
-.modBodyCard {
-  position: absolute;
-  top: 20px;
-  right: 47px;
+.textCard{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40%;
+  text-align: center;
+  white-space: normal;
+  word-break:break-all;
 }
+
+.imgPostContainer{
+  width: 100%;
+  height: 200px;
+  box-sizing: border-box;
+}
+
+.imgPost{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
 
 .footerCard {
   display: flex;
   justify-content:space-between;
   align-items: center;
   width: 100%;
-  height: 32%;
-  background-color: #7cbe6a;
+  height: 25%;
+  background-color: #e57373;
   overflow: hidden;
 }
 
@@ -177,6 +196,10 @@ footer {
   margin-left: 50px;
   font-weight: 600;
   font-size: 1.4rem;
+}
+
+.userColor {
+  color: black;
 }
 
 .likeContainer {
@@ -194,16 +217,18 @@ footer {
 }
 
 .unlikeBtn {
-  color: grey;
-  border: 1px grey solid;
+  color: white;
+  border: 1px white solid;
   border-radius: 25px;
   padding: 3px;
+  cursor: pointer;
 }
 
 .likeBtn {
   border: 1px black solid;
   border-radius: 25px;
   padding: 5px;
+  cursor: pointer;
 }
 
 .likeCount {
@@ -225,7 +250,9 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 border-radius: 70px;
-background-color: #7cbe6a;
+background-color: #e57373;
+margin-top: 30px;
+margin-bottom: 30px;
 width: 60%;
 height: 70%;
 }
@@ -260,6 +287,7 @@ height: 70%;
   border-radius: 25px;
   width: 130px;
   height: 45px;
+  margin-bottom: 10px;
 }
 
 /* post page */ 
@@ -278,7 +306,7 @@ height: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1000;
-  background-color: #7cbe6a;
+  background-color: #0EACD3;
 }
 
 .modalInput{
@@ -289,6 +317,13 @@ height: 70%;
   width: 100%;
   height: 30%;
   margin: 10px;
+}
+
+.closeModal {
+  position: absolute;
+  top: 3%;
+  right: 5%;
+  cursor: pointer;
 }
 
 .field {
@@ -316,46 +351,35 @@ height: 70%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex: 1;
-}
-
-
-.cardPost {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1px grey solid;
-  border-radius: 50px;
-  width: 90%;
-  height: 500px;
-  margin-top: 100px;
-  background-color: #E798AE;
-}
-
-.postBody{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
+  flex: 0.8;
 }
 
 .dltBtn {
   margin-right: 30px;
 }
 
+.borderPost{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0.2;
+  height: 300px;
+  margin: 20px;
+  border-left: 2px solid black;
+}
 .rightside{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex: 1;
+  flex: 0.8;
 }
 
 .addCommentContainer {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 20px;
 }
 
@@ -373,13 +397,43 @@ height: 70%;
   align-items: center;
 }
 .comment {
-  border:  2px #962D2D solid;
+  border:  2px #e57373 solid;
   border-radius: 25px;
   margin: 10px;
-  padding: 10px;
-  width: 60%;
+  width:80%;
+  height: 150px;
+  overflow: hidden;
 }
 
+.commentBody{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  background-color: white;
+
+}
+
+.inputComment{
+  width: 400px;
+  height: 100px;
+}
+
+.commentFooter{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 20%;
+  background-color: #e57373;
+}
+
+.mr20{
+  margin-right: 20px;
+}
+.ml20{
+margin-left: 20px;
+}
 /* login page */
 
 .loginForm {
@@ -428,25 +482,49 @@ height: 70%;
   border: 1px solid black;
   border-radius: 50px;
   width: 50%;
-  background-color: #e8f8e2;
+  background-color: white;
   margin-top: 20px;
   padding-bottom: 20px;
 }
 
-.infoContainerA{
+.info{
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
+  width: 90%;
+}
+
+.infoContainerText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+}
+
+.infoContainerBtn{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  width: 50%;
+}
+
+.btnDeleteContainer{
+  display: flex;
+  justify-content: flex-end;
   width: 100%;
 }
 
-.infoContainerB {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  width: 50%;
+.btnDelete{
+  width: 173px;
+}
+
+.m16{
+  margin: 16px;
+}
+
+.bold{
+  font-size: 1.3rem;
+  font-weight: bold;
 }
 
 .postContainer{
@@ -463,4 +541,179 @@ height: 70%;
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+
+/* change password page */
+
+.changePwContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 570px;
+}
+
+.changePwInput {
+  margin: 10px;
+}
+
+.changePwBtn {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid grey;
+  border-radius: 20px;
+}
+
+/* Page Not Found */
+.pageNotFound{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 551px;
+}
+
+/* ------------------------------------------------------ break point 1140 ------------------------------------------------*/
+ 
+@media (max-width: 1140px)
+{
+  /* footer */
+
+  .logoStyle{
+    width: 50%;
+  }
+
+  /*post page */
+
+  .postPage{
+    flex-direction: column;
+  }
+
+  .leftside{
+    flex: none;
+    width: 80%;
+  }
+
+  .borderPost{
+    margin: 40px;
+    width: 400px;
+    height: 0;
+    border-left: none;
+    border-top: 2px solid black;
+  }
+
+  .rightside{
+    flex: none;
+    width: 80%;
+  }
+
+  .comment{
+    width: 90%;
+  }
+
+}
+
+/* ------------------------------------------------------ break point 1090------------------------------------------------*/
+@media (max-width: 1090px)
+{
+  /*profile page */
+  .info{
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .infoContainerText{
+    align-items: center;
+    width: 100%;
+  }
+
+  .infoContainerBtn{
+    width: 100%;
+    align-items: center;
+  }
+
+  .btnDeleteContainer{
+    justify-content: center;
+  }
+}
+/* ------------------------------------------------------ break point 600 ------------------------------------------------*/
+@media (max-width: 600px)
+{
+  /*navBar*/
+  .link{
+    font-size: 1rem;
+  }
+    /* footer */
+    .logoStyle{
+      width: 70%;
+    }
+
+    /*home page*/
+    .postCard{
+      width: 450px;
+      height: 400px;
+    }
+    
+    .bodyCard{
+      justify-content: flex-start;
+      height: 60%;
+    }
+
+    .imgPostContainer{
+      height: 70%;
+    }
+
+    .textCard{
+      height: 30%;
+      margin: 0;
+      overflow: scroll;
+    }
+
+    /*profile*/
+    .basicInfo{
+      width: 70%;
+    }
+
+    /*Page Not Found */
+    .pnfScale{
+      font-size: 1.4rem;
+    }
+}
+
+
+/* ------------------------------------------------------ break point 516 ------------------------------------------------*/
+@media (max-width: 516px)
+{
+  /*navBar*/
+
+
+  .btnLog{
+    width: 50px;
+  }
+
+  .btnLogPlacement{
+    flex: none;
+  }
+
+    /*home page*/
+    .postCard{
+      width: 400px;
+      height: 350px;
+    }
+
+    .textCard{
+      height: 100%;
+      margin: 0;
+      overflow: scroll;
+    }
+
+    /*registration page*/
+    .inputForm{
+      width: 200px;
+    }
+
+    .inputText{
+      width: 200px;
+    }
 }

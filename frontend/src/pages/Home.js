@@ -21,6 +21,7 @@ function Home() {
           headers: { accessToken: localStorage.getItem("accessToken") },
         })
         .then((response) => {
+          console.log(response.data);
           setListOfPosts(response.data.listOfPosts);
           setLikedPosts(
             response.data.likedPosts.map((like) => {
@@ -32,14 +33,13 @@ function Home() {
   }, []);
 
   const deletePost = (id) => {
-    axios.delete(
-      `http://localhost:3002/posts/${id}`,
-      {
+    axios
+      .delete(`http://localhost:3002/posts/${id}`, {
         headers: { accessToken: localStorage.getItem("accessToken") },
-      }
-    ).then(() => {
-      window.location.reload(false);
-    })
+      })
+      .then(() => {
+        window.location.reload(false);
+      });
   };
 
   const likeAPost = (postId) => {
@@ -77,9 +77,7 @@ function Home() {
         }
       });
   };
-  
 
-  
   return (
     <div className="postDisplay">
       {listOfPosts.map((value, key) => {
@@ -87,25 +85,36 @@ function Home() {
           <div key={key} className="postCard">
             <div className="headerCard">
               <div className="title">{value.title}</div>
-              {(authState.username === value.username || authState.role === "roleAdmin" ) &&  (
-                  <DeleteForeverIcon className="delModBtn"
+              {(authState.username === value.username ||
+                authState.role === "roleAdmin") && (
+                <DeleteForeverIcon
+                  className="delModBtn"
                   onClick={() => {
                     deletePost(value.id);
                   }}
                 />
-
-            )}
+              )}
             </div>
             <div
               className="bodyCard pointer"
               onClick={() => history.push(`/post/${value.id}`)}
             >
-              {value.postText}
+              {value.image && (
+                <div className="imgPostContainer">
+                  <img
+                    src={`http://localhost:3002/${value.image}`}
+                    className="imgPost"
+                  />
+                </div>
+              )}
+              <div className="textCard">
+                <p>{value.postText}</p>
+              </div>
             </div>
             <div className="footerCard">
               <div className="username">
                 <Link
-                  className="noDecoration colorText"
+                  className="noDecoration userColor"
                   to={`/profile/${value.UserId}`}
                 >
                   {" "}

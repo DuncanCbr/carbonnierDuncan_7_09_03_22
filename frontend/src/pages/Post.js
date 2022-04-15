@@ -3,6 +3,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { AuthContext } from "../helpers/AuthContext";
 import axios from "axios";
 import EditIcon from "@mui/icons-material/Edit";
+import CloseIcon from '@mui/icons-material/Close';
 
 function Post() {
   let { id } = useParams();
@@ -73,39 +74,55 @@ function Post() {
   const editPost = () => {
     let newTitle = inpTitle;
     let newText = inpText;
-    axios.put('http://localhost:3002/posts/editPost',
-    {
-      newTitle: newTitle,
-      newText: newText,
-      id: id,
-    },
-    {
-      headers: { accessToken: localStorage.getItem("accessToken") },
-    }
-    ).then((response) => {
-      setPostObject({...postObject, title: newTitle, postText: newText});
-      document.getElementById("modal").style.display = "none";
-    })
+    axios
+      .put(
+        "http://localhost:3002/posts/editPost",
+        {
+          newTitle: newTitle,
+          newText: newText,
+          id: id,
+        },
+        {
+          headers: { accessToken: localStorage.getItem("accessToken") },
+        }
+      )
+      .then((response) => {
+        setPostObject({ ...postObject, title: newTitle, postText: newText });
+        document.getElementById("modal").style.display = "none";
+      });
   };
   return (
     <div className="postPage">
       <div id="modal" className="modalForm">
+      <CloseIcon className="closeModal" onClick={() => {document.getElementById("modal").style.display = "none";}}/>
         <div className="modalInput">
-          <label htmlFor="title"> title</label>
-          <input name="title" className="field" placeholder={postObject.title} onChange={((e) => {
-            setInpTitle( e.target.value)
-          })} />
+          <label htmlFor="title"> titre</label>
+          <input
+            name="title"
+            className="field"
+            placeholder={postObject.title}
+            onChange={(e) => {
+              setInpTitle(e.target.value);
+            }}
+          />
         </div>
         <div className="modalInput">
-          <label htmlFor="text"> Text</label>
-          <input name="text" className="field" placeholder={postObject.postText} onChange={((e) => {
-            setInpText(e.target.value)
-          })} />
+          <label htmlFor="text"> Texte</label>
+          <input
+            name="text"
+            className="field"
+            placeholder={postObject.postText}
+            onChange={(e) => {
+              setInpText(e.target.value);
+            }}
+          />
         </div>
         <div>
           <input type="file" className="marginFile"></input>
         </div>
-        <button className="validModifBtn" onClick={editPost}>Validate</button>
+        <button className="validModifBtn" onClick={editPost}>
+          Valider
+        </button>
       </div>
       <div className="leftside">
         <div className="postCard">
@@ -120,9 +137,7 @@ function Post() {
               }}
             />
           </div>
-          <div className="bodyCard">
-            {postObject.postText}
-          </div>
+          <div className="bodyCard">{postObject.postText}</div>
           <div className="footerCard">
             <div className="username">{postObject.username}</div>
             {(authState.username === postObject.username ||
@@ -133,28 +148,32 @@ function Post() {
                   deletePost(postObject.id);
                 }}
               >
-                delete post
+                effacer
               </button>
             )}
           </div>
         </div>
       </div>
+      <div><div className="borderPost"></div></div>
       <div className="rightside">
+        <div><h1>Les Commentaires</h1></div>
         <div className="listOfComments">
           {comments.map((comment, index) => {
             return (
               <div key={index} className="comment">
-                {comment.commentBody}
-                <label> Username : {comment.username}</label>
-                {authState.username === comment.username && (
-                  <button
-                    onClick={() => {
-                      deleteComment(comment.id);
-                    }}
-                  >
-                    DELETE
-                  </button>
-                )}
+                <div className="commentBody">{comment.commentBody}</div>
+                <div className="commentFooter">
+                  <label className="ml20">{comment.username}</label>
+                  {authState.username === comment.username && (
+                    <button className="mr20"
+                      onClick={() => {
+                        deleteComment(comment.id);
+                      }}
+                    >
+                      effacer
+                    </button>
+                  )}
+                </div>
               </div>
             );
           })}
@@ -165,13 +184,13 @@ function Post() {
             className="inputComment"
             value={newComment}
             type="text"
-            placeholder="comment..."
+            placeholder="commentaire..."
             onChange={(event) => {
               setNewComment(event.target.value);
             }}
           ></input>
           <button className="btnAddComment pointer" onClick={addComment}>
-            Add Comment
+            ajouter un commentaire
           </button>
         </div>
       </div>

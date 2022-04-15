@@ -13,7 +13,10 @@ const likesRouter = require('./routes/likes');
 
 app.use(express.json());
 app.use(cors());
-app.use(helmet());
+app.use(helmet({
+    crossOriginResourcePolicy: false,
+  }));
+app.use('/images', express.static('./images'))
 
 app.use("/posts", postRouter);
 app.use("/comments", commentsRouter);

@@ -38,39 +38,43 @@ function Profile() {
     <div className="profilePageContainer">
       <div className="basicInfo">
         {""}
-        <p> Username: {profileInfo.username}</p>
-        <div className="infoContainerA">
-          <div className="infoContainerB">
-            <p> phone: {profileInfo.phone}</p>
-            <button
-              onClick={() => {
-                history.push("/ChangePassword");
-              }}
-            >
-              {" "}
-              change my Password
-            </button>
+        <p> <span className="bold">Nom d'utilisateur</span>: {profileInfo.username}</p>
+        <div className="info">
+          <div className="infoContainerText">
+            <div className="m16"> <span className="bold">Téléphone</span>: {profileInfo.phone}</div>
+            <div className="m16"> <span className="bold">email</span>: {profileInfo.email}</div>
           </div>
 
-          {(authState.username === profileInfo.username ||
-            authState.role === "roleAdmin") && (
-            <div className="infoContainerB">
-              <p> email: {profileInfo.email}</p>
+          <div className="infoContainerBtn">
+            <div className="m16">
               <button
                 onClick={() => {
-                  deleteUser(id);
+                  history.push("/ChangePassword");
                 }}
               >
                 {" "}
-                Delete Account
+                changer de mots de passe
               </button>
             </div>
-          )}
+            {(authState.username === profileInfo.username ||
+              authState.role === "roleAdmin") && (
+              <div className="btnDeleteContainer m16">
+                <button className="btnDelete "
+                  onClick={() => {
+                    deleteUser(id);
+                  }}
+                >
+                  {" "}
+                  effacer le compte
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
       <div className="postContainer">
-        <h1>Your Posts : </h1>
+        <h1>Vos postes : </h1>
         <div className="listOfPost">
           {listOfPosts.map((value, key) => {
             return (
@@ -82,7 +86,17 @@ function Profile() {
                   className="bodyCard pointer"
                   onClick={() => history.push(`/post/${value.id}`)}
                 >
-                  {value.postText}
+                  {value.image && (
+                    <div className="imgPostContainer">
+                      <img
+                        src={`http://localhost:3002/${value.image}`}
+                        className="imgPost"
+                      />
+                    </div>
+                  )}
+                  <div className="textCard">
+                    <p>{value.postText}</p>
+                  </div>
                 </div>
                 <div className="footerCard">
                   <div className="username">{value.username}</div>
