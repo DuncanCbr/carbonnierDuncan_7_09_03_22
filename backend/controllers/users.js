@@ -25,12 +25,18 @@ exports.loginUser = async (req, res) => {
     if (!match) res.json({ error: "wrong password !" });
 
     const accessToken = sign(
-      { username: user.username, id: user.id, role: user.role},
+      { username: user.username, id: user.id, role: user.role },
       "secret"
     );
-    res.json({ token: accessToken, username: username, role: user.role, id: user.id });
+    res.json({
+      token: accessToken,
+      username: username,
+      role: user.role,
+      id: user.id,
+    });
   });
 };
+
 exports.checkToken = (req, res) => {
   res.json(req.user);
 };
@@ -59,7 +65,6 @@ exports.editPassword = async (req, res) => {
     });
   });
 };
-
 
 exports.deleteAccount = async (req, res) => {
   const userId = req.params.id;

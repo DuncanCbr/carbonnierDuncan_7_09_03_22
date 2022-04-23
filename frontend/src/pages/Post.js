@@ -128,6 +128,7 @@ function Post() {
         <div className="postCard">
           <div className="headerCard">
             <div className="title">{postObject.title}</div>
+            {(authState.username === postObject.username) &&
             <EditIcon
               className="delModBtn pointer"
               onClick={() => {
@@ -136,6 +137,8 @@ function Post() {
                 }
               }}
             />
+                  
+                }
           </div>
           <div className="bodyCard">{postObject.postText}</div>
           <div className="footerCard">

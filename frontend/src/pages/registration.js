@@ -69,7 +69,7 @@ function registration() {
             <Field
               className="inputForm"
               name="phone"
-              placeholder="(Your Phone Number"
+              placeholder="(Your Phone Number...)"
             />
             <ErrorMessage name="phone" component="span" className="msgError" />
           </label>
