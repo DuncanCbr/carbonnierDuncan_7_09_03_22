@@ -140,7 +140,21 @@ function Post() {
                   
                 }
           </div>
-          <div className="bodyCard">{postObject.postText}</div>
+          <div
+              className="bodyCard"
+            >
+              {postObject.image && (
+                <div className="imgPostContainer">
+                  <img
+                    src={`http://localhost:3002/${postObject.image}`}
+                    className="imgPost"
+                  />
+                </div>
+              )}
+              <div className="textCard">
+                <p>{postObject.postText}</p>
+              </div>
+            </div>
           <div className="footerCard">
             <div className="username">{postObject.username}</div>
             {(authState.username === postObject.username ||
@@ -180,7 +194,7 @@ function Post() {
               </div>
             );
           })}
-          ;
+          
         </div>
         <div className="addCommentContainer">
           <input

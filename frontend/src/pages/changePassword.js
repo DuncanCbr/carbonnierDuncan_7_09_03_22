@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 function ChangePassword() {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
+  let history = useHistory();
 
   const changePassword = () => {
     axios
@@ -23,6 +25,7 @@ function ChangePassword() {
         if (response.data.error) {
           alert(response.data.error);
         }
+        history.push("/home");
       });
   };
 
