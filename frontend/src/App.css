@@ -31,6 +31,7 @@ h1 {
 }
 
 /* navbar */
+
 .navBar {
   display: flex;
   flex-direction: row;

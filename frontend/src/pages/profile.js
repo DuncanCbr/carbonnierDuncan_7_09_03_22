@@ -46,6 +46,8 @@ function Profile() {
           </div>
 
           <div className="infoContainerBtn">
+          {(authState.username === profileInfo.username ||
+              authState.role === "roleAdmin") && (
             <div className="m16">
               <button
                 onClick={() => {
@@ -56,6 +58,7 @@ function Profile() {
                 changer de mots de passe
               </button>
             </div>
+             )}
             {(authState.username === profileInfo.username ||
               authState.role === "roleAdmin") && (
               <div className="btnDeleteContainer m16">
@@ -74,7 +77,7 @@ function Profile() {
       </div>
 
       <div className="postContainer">
-        <h1>Vos postes : </h1>
+        <h1> <b>{authState.username === profileInfo.username ? "Vos postes :" : `Les postes de ${profileInfo.username} : ` }</b> </h1>
         <div className="listOfPost">
           {listOfPosts.map((value, key) => {
             return (

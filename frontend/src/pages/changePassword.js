@@ -25,7 +25,7 @@ function ChangePassword() {
         if (response.data.error) {
           alert(response.data.error);
         }
-        history.push("/home");
+        history.push("/");
       });
   };
 

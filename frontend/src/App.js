@@ -1,5 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch, Link, useHistory } from "react-router-dom";
+import { v4 as uuidv4 } from 'uuid';
 import Home from "./pages/Home";
 import createpost from "./pages/Createpost";
 import Post from "./pages/Post";
@@ -45,6 +46,13 @@ function App() {
       });
   }, []);
 
+
+  const linkTarget = (() => {
+    document.location.href = `/profile/${authState.id}`;
+  });
+
+
+
 const Logout = () => {
     localStorage.removeItem("accessToken");
     setAuthState({ username: "", id: 0, role: "", status: false });
@@ -77,7 +85,7 @@ const Logout = () => {
                 </Link>
               </div>
               <div className="btnLogPlacement">
-                <Link className=" profileIcon noDecoration colorText" to={`/profile/${authState.id}`}><PersonIcon/></Link>
+                <div className=" profileIcon noDecoration colorText pointer" onClick={() => {linkTarget()}}><PersonIcon /></div>
                 <Link to='/login' className="noDecoration">
                 <button className="btnLog pointer" onClick={Logout}>
                   <LogoutIcon/>

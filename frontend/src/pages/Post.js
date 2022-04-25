@@ -57,6 +57,7 @@ function Post() {
           };
           setComments([...comments, commentToAdd]);
           setNewComment("");
+          window.location.reload(false);
         }
       });
   };
