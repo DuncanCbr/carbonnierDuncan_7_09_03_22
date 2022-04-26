@@ -74,7 +74,7 @@ setLikedPosts([...likedPosts, postId]);
 };
 return (
 <div className="App">
-<h1>File D'actualitÃ©</h1>
+<h1>File D'actualité</h1>
 <div className="postDisplay">
 {listOfPosts.map((value, key) => {
 return (

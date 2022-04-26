@@ -43,7 +43,7 @@ return (
 <ErrorMessage name="email" component="span" className="msgError" />
 </label>
 <label className="fieldStyle">
-<span>TÃ©lÃ©phone </span>
+<span>Téléphone </span>
 <Field className="inputForm" name="phone" placeholder="(Your Phone Number...)" />
 <ErrorMessage name="phone" component="span" className="msgError" />
 </label>

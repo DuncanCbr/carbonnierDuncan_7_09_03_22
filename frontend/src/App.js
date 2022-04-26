@@ -75,7 +75,7 @@ Accueil
 <div className=" profileIcon noDecoration colorText pointer" onClick={()=> {linkTarget()}}><PersonIcon aria-hidden="false" /></div>
 <Link to='/login' className="noDecoration">
 <button className="btnLog pointer" onClick={Logout} aria-label="boutton de dÃ©connection">
-<LogoutIcon aria-hidden="false" /><span className="deco">dÃ©connection</span>
+<LogoutIcon aria-hidden="false" /><span className="deco">déconnection</span>
 </button>
 </Link>
 </div>
@@ -100,8 +100,8 @@ Accueil
 </div>
 <div className="polPryContainer">
 <p className="polPryStyle pointer colorText">Nous contacter</p>
-<p className="polPryStyle pointer colorText">Mentions LÃ©gales</p>
-<p className="polPryStyle pointer colorText">Politique et ConfidentialitÃ©</p>
+<p className="polPryStyle pointer colorText">Mentions Légales</p>
+<p className="polPryStyle pointer colorText">Politique et Confidentialité</p>
 </div>
 </footer>
 </AuthContext.Provider>
