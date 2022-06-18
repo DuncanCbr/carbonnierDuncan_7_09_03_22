@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/carbonnierDuncan_7_09_03_22/static/css/main.1180fbfc.css",
+    "main.js": "/carbonnierDuncan_7_09_03_22/static/js/main.60935c8f.js",
+    "static/js/787.cda612ba.chunk.js": "/carbonnierDuncan_7_09_03_22/static/js/787.cda612ba.chunk.js",
+    "static/media/icon-left-font-monochrome-white.svg": "/carbonnierDuncan_7_09_03_22/static/media/icon-left-font-monochrome-white.55fdde429d68ae3dbf92f0e92ae967c3.svg",
+    "index.html": "/carbonnierDuncan_7_09_03_22/index.html",
+    "main.1180fbfc.css.map": "/carbonnierDuncan_7_09_03_22/static/css/main.1180fbfc.css.map",
+    "main.60935c8f.js.map": "/carbonnierDuncan_7_09_03_22/static/js/main.60935c8f.js.map",
+    "787.cda612ba.chunk.js.map": "/carbonnierDuncan_7_09_03_22/static/js/787.cda612ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1180fbfc.css",
+    "static/js/main.60935c8f.js"
+  ]
+}
