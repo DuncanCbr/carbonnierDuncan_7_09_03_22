@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://DuncanCbr.github.io/carbonnierDuncan_7_09_03_22",
+  "homepage": "https://duncancbr.github.io/carbonnierDuncan_7_09_03_22/",
   "dependencies": {
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",

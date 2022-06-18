@@ -1,0 +1,591 @@
+.App {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #e9f1f4;
+  min-height: 570px;
+}
+#root {
+  background-color: #e9f1f4;
+}
+.colorText {
+  color: white;
+}
+.noDecoration {
+  text-decoration: none;
+}
+.pointer {
+  cursor: pointer;
+}
+h1 {
+  font-size: 1.9rem;
+}
+.navBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background-color: #01579b;
+}
+.link {
+  margin-left: 30px;
+  font-size: 1.2rem;
+}
+.navLinkPlacement {
+  flex: 1;
+}
+.profileIcon {
+  border: 1px solid white;
+  border-radius: 50px;
+  margin-right: 30px;
+  padding: 3px;
+}
+.btnLogPlacement {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: flex-end;
+}
+.btnLog {
+  width: 120px;
+  height: 30px;
+  border-radius: 25px;
+  border: 1px solid grey;
+  margin-right: 20px;
+}
+.deco {
+  display: none;
+}
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 300px;
+  background-color: #01579b;
+}
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 60%;
+}
+.logoStyle {
+  width: 30%;
+  height: 100%;
+}
+.polPryContainer {
+  display: flex;
+  flex-direction: row;
+}
+.polPryStyle {
+  margin: 20px;
+}
+.postDisplay {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+}
+.postCard {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 1px grey solid;
+  border-radius: 50px;
+  width: 550px;
+  height: 500px;
+  margin: 30px;
+  background-color: white;
+  overflow: hidden;
+}
+.headerCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 25%;
+  background-color: #e57373;
+}
+.title {
+  flex: 1;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+.delModBtn {
+  cursor: pointer;
+  flex: 0.3;
+}
+.bodyCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+.textCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40%;
+  text-align: center;
+  white-space: normal;
+  word-break: break-all;
+}
+.imgPostContainer {
+  width: 100%;
+  height: 200px;
+  box-sizing: border-box;
+}
+.imgPost {
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+}
+.footerCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 25%;
+  background-color: #e57373;
+  overflow: hidden;
+}
+.username {
+  margin-left: 50px;
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+.userColor {
+  color: black;
+}
+.likeContainer {
+  margin-right: 30px;
+  width: 200px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.likeBtnContainer {
+  margin-right: 20px;
+}
+.unlikeBtn {
+  color: white;
+  border: 1px white solid;
+  border-radius: 25px;
+  padding: 3px;
+  cursor: pointer;
+}
+.likeBtn {
+  border: 1px black solid;
+  border-radius: 25px;
+  padding: 5px;
+  cursor: pointer;
+}
+.likeCount {
+  font-size: 1.3rem;
+}
+.creatPostPage {
+  background-color: #ececec;
+  width: 100%;
+  height: 600px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 70px;
+  background-color: #e57373;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 60%;
+  height: 70%;
+}
+.fieldStyle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+.inputForm {
+  margin-top: 10px;
+  width: 250px;
+  height: 25px;
+  border-radius: 20px;
+  border: 1px grey solid;
+}
+.inputText {
+  margin-top: 10px;
+  width: 300px;
+  height: 100px;
+  border-radius: 20px;
+  border: 1px grey solid;
+}
+.submitButton {
+  border: 1px grey solid;
+  border-radius: 25px;
+  width: 130px;
+  height: 45px;
+  margin-bottom: 10px;
+}
+.modalForm {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 450px;
+  height: 400px;
+  border: 1px solid black;
+  border-radius: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background-color: #0eacd3;
+}
+.modalInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 30%;
+  margin: 10px;
+}
+.closeModal {
+  position: absolute;
+  top: 3%;
+  right: 5%;
+  cursor: pointer;
+}
+.field {
+  width: 65%;
+  height: 60px;
+  border: 0.5px solid black;
+  border-radius: 15px;
+  margin-top: 10px;
+}
+.marginFile {
+  margin: 20px;
+}
+.postPage {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.leftside {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 0.8;
+}
+.dltBtn {
+  margin-right: 30px;
+}
+.borderPost {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0.2;
+  height: 300px;
+  margin: 20px;
+  border-left: 2px solid black;
+}
+.rightside {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 0.8;
+}
+.addCommentContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.btnAddComment {
+  border-radius: 25px;
+  width: 130px;
+  height: 45px;
+  margin-top: 20px;
+}
+.listOfComments {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.comment {
+  border: 2px #e57373 solid;
+  border-radius: 25px;
+  margin: 10px;
+  width: 80%;
+  height: 150px;
+  overflow: hidden;
+}
+.commentBody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  background-color: white;
+}
+.commentLabel {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 20px;
+}
+.commentLabelDisplay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.inputComment {
+  width: 400px;
+  height: 100px;
+}
+.commentFooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 20%;
+  background-color: #e57373;
+}
+.mr20 {
+  margin-right: 20px;
+}
+.ml20 {
+  margin-left: 20px;
+}
+.loginForm {
+  width: 100%;
+  height: 500px;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+}
+.loginInput {
+  height: 20px;
+  margin-top: 10px;
+  border: 2px #4a1c40 solid;
+  border-radius: 25px;
+}
+.loginButton {
+  width: 150px;
+  height: 50px;
+  border: 2px #4a1c40 solid;
+  border-radius: 25px;
+  margin-top: 10px;
+}
+.profilePageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.basicInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 50px;
+  width: 50%;
+  background-color: white;
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+.info {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+}
+.infoContainerText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+}
+.infoContainerBtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  width: 50%;
+}
+.btnDeleteContainer {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.btnDelete {
+  width: 173px;
+}
+.m16 {
+  margin: 16px;
+}
+.bold {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.postContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.listOfPost {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.changePwContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 570px;
+}
+.changePwInput {
+  margin: 10px;
+}
+.changePwBtn {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid grey;
+  border-radius: 20px;
+}
+.pageNotFound {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 551px;
+}
+@media (max-width: 1140px) {
+  .logoStyle {
+    width: 50%;
+  }
+  .postPage {
+    flex-direction: column;
+  }
+  .leftside {
+    flex: none;
+    width: 80%;
+  }
+  .borderPost {
+    margin: 40px;
+    width: 400px;
+    height: 0;
+    border-left: none;
+    border-top: 2px solid black;
+  }
+  .rightside {
+    flex: none;
+    width: 80%;
+  }
+  .comment {
+    width: 90%;
+  }
+}
+@media (max-width: 1090px) {
+  .info {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+  .infoContainerText {
+    align-items: center;
+    width: 100%;
+  }
+  .infoContainerBtn {
+    width: 100%;
+    align-items: center;
+  }
+  .btnDeleteContainer {
+    justify-content: center;
+  }
+}
+@media (max-width: 600px) {
+  .link {
+    font-size: 1rem;
+  }
+  .logoStyle {
+    width: 70%;
+  }
+  .postCard {
+    width: 450px;
+    height: 400px;
+  }
+  .bodyCard {
+    justify-content: flex-start;
+    height: 60%;
+  }
+  .imgPostContainer {
+    height: 70%;
+  }
+  .textCard {
+    height: 30%;
+    margin: 0;
+    overflow: scroll;
+  }
+  .basicInfo {
+    width: 70%;
+  }
+  .pnfScale {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 516px) {
+  .btnLog {
+    width: 50px;
+  }
+  .btnLogPlacement {
+    flex: none;
+  }
+  .postCard {
+    width: 400px;
+    height: 350px;
+  }
+  .textCard {
+    height: 100%;
+    margin: 0;
+    overflow: scroll;
+  }
+  .inputForm {
+    width: 200px;
+  }
+  .inputText {
+    width: 200px;
+  }
+}
