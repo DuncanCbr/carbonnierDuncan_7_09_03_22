@@ -33,7 +33,7 @@ history.push("/");
 }
 return (
 <div className='App'>
-<h1>Créez votre poste</h1>
+<h1>CrÃ©ez votre poste</h1>
 <div className='creatPostPage App'>
 <Formik initialValues={initialValues} onSubmit={onSubmit} method="POST" encType='multipart/form-data' validationSchema={validationSchema}>
 <Form className='form'>
@@ -49,7 +49,7 @@ return (
 <span>Image</span>
 <Field type="file" name="image" id='inputImage' className="marginFile" onChange={(e)=>setImage(e.target.files[0])}></Field>
 </label>
-<button className="submitButton" type='submit'>Créez votre message</button>
+<button className="submitButton" type='submit'>CrÃ©ez votre message</button>
 </Form>
 </Formik>
 </div>

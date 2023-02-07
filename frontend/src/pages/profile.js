@@ -37,7 +37,7 @@ return (
 <p> <span className="bold">Nom d'utilisateur</span>: {profileInfo.username}</p>
 <div className="info">
 <div className="infoContainerText">
-<div className="m16"> <span className="bold">Téléphone</span>: {profileInfo.phone}</div>
+<div className="m16"> <span className="bold">TÃ©lÃ©phone</span>: {profileInfo.phone}</div>
 <div className="m16"> <span className="bold">email</span>: {profileInfo.email}</div>
 </div>
 <div className="infoContainerBtn">
@@ -81,7 +81,7 @@ return (
 >
 {value.image && (
 <div className="imgPostContainer">
-<img src={`http://localhost:3002/${value.image}`} alt="image ajouté par un utilisateur"className="imgPost" />
+<img src={`http://localhost:3002/${value.image}`} className="imgPost" />
 </div>
 )}
 <div className="textCard">
